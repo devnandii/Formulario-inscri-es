@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+:root {
+    --grayBrown: #292524;
+    --white: #FFFFFF;
+    --lightGray: #ccc;
+    --orangeRed: #E43A12;
+    --royalBlue: #2135A6;
+    --coralOrange: #F67841;
+    --gray: #cec7c0;
+    --black: #000000;
+    --lightBlue: #bfc7f8;
+    --blue: #4D55CC;
+    --marinho:#0d1ad1;
+
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items:flex-start;
+    padding-top: 32px;
+    /* background-color:#2135A6; */
+    /* background-image: url(img/Ativo\ 43@4x\ 1.png); */
+    background-color: var(--royalBlue);
+    
+}
+.info{
+    margin-bottom: 20px;
+}
+
+h2{
+    color: var(--grayBrown);
+}
+.container {
+    width: 70%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: 10px;    
+    flex-direction: column;
+    margin-right: 110px;
+        
+}
+
+.formulario {    
+    width: 100%;
+}
+
+.imagem_estudante {
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 250px;
+    /* background-color: #2135A6; */
+}
+
+.imagem_estudante img {
+    max-width: 100%;
+    height: auto;
+    top: 10rem;
+    left: 1rem;    
+    position: fixed;
+}
+
+fieldset {
+    border: 1px solid var(--lightGray);
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+legend {
+    font-weight: bold;
+    color: var(--grayBrown);
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--lightGray);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.rua-numero,
+.cidade-estado {
+    display: flex;
+    gap: 1rem;
+}
+
+.rua-numero .rua,
+.rua-numero .num,
+.cidade-estado .cidade,
+.cidade-estado .estado {
+    flex: 1;
+}
+
+input[type="radio"] {
+    margin-right: 0.5rem;
+}
+
+.botoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1rem;
+    
+}
+
+.voltar{
+    background-color: var(--gray);
+    color: var(--black);
+
+}
+
+.voltar:hover {
+    background-color: var(--lightBlue);
+
+}
+
+.cancela,
+.fazer_inscricao, .continuar, .voltar {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.cancela {
+    background-color: var(--white);
+    color: var(--black);
+    border: 1px solid var(--orangeRed)
+}
+.cancela:hover {
+   background-color: var(--orangeRed);
+   color: var(--white);
+}
+.continuar{
+    background-color: var(--royalBlue);
+    color: var(--white);
+}
+.fazer_inscricao {
+    background-color: var(--royalBlue);
+    color: var(--white);
+}
+
+.continuar:hover, .fazer_inscricao:hover {
+    background-color: var(--coralOrange);
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .formulario,
+    .imagem_estudante {
+        width: 100%;
+    }
+
+    .imagem_estudante {
+        margin-top: 2rem;
+    }
+}
+
+.trilha-container{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    
+}
+
+.trilha-box {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 256px;
+    height: 120px;
+    border: 2px solid var(--grayBrown);
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+    
+}
+
+.trilha-box:hover {
+    background-color: #4D55CC;
+}
+
+.trilha-box img {
+    width: 50px;
+    height: 50px;
+   
+}
+
+#section2, #section3 {
+    display: none;
+}
+
+/*========capa==========*/
+.log-inicio{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2%;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+}
+
+.log-inicio img{
+    height: 2rem;   
+}
+
+.inicio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.img-inicio{
+    width: 100%;
+    height: auto;
+    
+}
+
+.inscrever a{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    border: 1px solid var(--white);
+    border-radius: 16px;
+    padding: 16px;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.inscrever a:hover{
+    background-color: var(--white);
+    color: var(--black);
+}
+
+
