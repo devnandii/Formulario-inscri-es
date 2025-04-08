@@ -13,6 +13,7 @@
     --lightBlue: #bfc7f8;
     --blue: #4D55CC;
     --marinho:#0d1ad1;
+    --form: #57534E;
 
 }
 
@@ -45,7 +46,7 @@ h2{
 }
 .container {
     width: 70%;
-    max-width: 1200px;
+    /* max-width: 1200px; */
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -57,9 +58,11 @@ h2{
         
 }
 
-.formulario {    
+form {
     width: 100%;
+    color: var(--form);
 }
+
 
 .imagem_estudante {
     width: 55%;
@@ -99,7 +102,7 @@ label {
 input, select {
     width: 100%;
     padding: 0.5rem;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
     border: 1px solid var(--lightGray);
     border-radius: 5px;
     font-size: 1rem;
@@ -126,9 +129,17 @@ input[type="radio"] {
     display: flex;
     justify-content: flex-end;
     gap: 1rem;
-    margin-top: 1rem;
-    
+    margin-top: 1rem;  
 }
+
+button{
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
 
 .voltar{
     background-color: var(--gray);
@@ -141,8 +152,7 @@ input[type="radio"] {
 
 }
 
-.cancela,
-.fazer_inscricao, .continuar, .voltar {
+.cancela,.continuar, .voltar {
     padding: 0.5rem 1rem;
     border: none;
     border-radius: 5px;
@@ -159,18 +169,41 @@ input[type="radio"] {
    background-color: var(--orangeRed);
    color: var(--white);
 }
-.continuar{
-    background-color: var(--royalBlue);
-    color: var(--white);
-}
-.fazer_inscricao {
+.continuar, .cadastrar{
     background-color: var(--royalBlue);
     color: var(--white);
 }
 
-.continuar:hover, .fazer_inscricao:hover {
+
+.continuar:hover, .cadastrar:hover {
     background-color: var(--coralOrange);
 }
+/*
+.container.error input{
+    border-color: #ff3b25;
+
+}
+
+.container.error a{
+    color: #ff3b25;
+} 
+
+.container a{
+    bottom: -8px;
+    left: 0;
+    visibility: hidden;
+
+    
+} */
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 768px) {
     .container {
@@ -195,19 +228,22 @@ input[type="radio"] {
 }
 
 .trilha-box {
+    
     display: flex; 
     flex-direction: column;
-    align-items: center;
+    align-items: center; 
     justify-content: center;
     width: 256px;
     height: 120px;
-    border: 2px solid var(--grayBrown);
+    border: 2px solid var(--form);
     border-radius: 8px;
     text-align: center;
-    cursor: pointer;
+    cursor: pointer;   
     transition: 0.3s;
     
 }
+
+
 
 .trilha-box:hover {
     background-color: #4D55CC;
