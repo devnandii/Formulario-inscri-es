@@ -121,6 +121,7 @@
                         <div class="cidade">
                             <label for="cidade">Cidade</label>
                             <input type="text" id="cidade" name="cidade">
+                            <span id="cidade-erro" class="erro"></span>
                              
                         </div>
                         <div class="estado">
@@ -153,8 +154,10 @@
                                 <option value="SC">Santa Catarina (SC)</option>
                                 <option value="SP">São Paulo (SP)</option>
                                 <option value="SE">Sergipe (SE)</option>
-                                <option value="TO">Tocantins (TO)</option>
+                                <option value="TO">Tocantins (TO)</option>                                
                             </select>
+                            <span id="estado-erro" class="erro"></span>
+                            
                         </div>
                     </div>
                     <div>
@@ -206,6 +209,7 @@
                             <label for="dados">Ciência de Dados</label>
                         </div>
                     </div>
+                    <div id="trilha-erro" class="erro" style="display: none;"></div>
                      
                 </fieldset>
                 <div class="botoes">
@@ -223,24 +227,27 @@
                     <div>
                         <label for="user">Nome do usuário</label>
                         <input type="text" id="user" placeholder="ID do usuário" >
+                        <div id="user-erro" class="erro"></div>
                          
                     </div>
 
                     <div>
                         <label for="senha">Senha</label>
                         <input type="password" id="senha" placeholder="Digite sua senha" >
+                        <div id="senha-erro" class="erro"></div>
                          
                     </div>
 
                     <div>
-                        <label for="user">Confirmação de senha</label>
+                        <label for="confirmar_senha">Confirmação de senha</label>
                         <input type="password" id="confirmar_senha"  placeholder="Digite sua senha novamente" >
+                        <div id="confirmar_senha-erro" class="erro"></div>
                          
                     </div>
 
                     <div class="botoes">
                         <button class="voltar" type="button" onclick="mostrarParte3()">Voltar</button>
-                        <button class="cadastrar" type="submit" onclick="finalizarInscricao()">Cadastrar</button>
+                        <button class="cadastrar" type="button" onclick="finalizarInscricao()">Cadastrar</button>
                     </div>
                     
                     

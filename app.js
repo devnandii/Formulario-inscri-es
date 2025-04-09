@@ -32,13 +32,29 @@ function mostrarParte4() {
     }
 }
 
-function finalizarInscricao() {
-    if (validarParte3()) {
-        salvarDados();
-        alert("✅ Inscrição realizada com sucesso!");
+// function finalizarInscricao() {
+//     if (validarParte3()) {
+//         salvarDados();
+//         alert("✅ Inscrição realizada com sucesso!");
         
+//     }
+// }
+
+function finalizarInscricao() {
+    if (validarParte4()) {
+        salvarDados();
+        
+        // Exibe mensagem de sucesso
+        alert('Cadastro realizado com sucesso!');
+        
+        // Redireciona para a página de login após 2 segundos
+        setTimeout(() => {
+            window.location.href = 'login.html'; // Substitua pelo caminho correto da sua página de login
+        }, 2000);
     }
 }
+
+
 
 function alternarSecoes(id) {
     // Seleciona todas as divs filhas diretas do formulário
@@ -92,12 +108,6 @@ function formatar(mascara, documento) {
     }
   }
     
-
-
-
-
-
-
 // Validação dos campos
 function validarParte1() {
     limparErros();
@@ -108,6 +118,7 @@ function validarParte1() {
     let cpf = document.getElementById("cpf");
     let sexo = document.getElementById("sexo");
     let email = document.getElementById("email");
+    let telefone = document.getElementById("telefone");
 
     if (!nome.value.trim()) {
         erro("nome", "⚠ Preencha o nome completo.");
@@ -127,7 +138,11 @@ function validarParte1() {
         erro("email", "⚠ E-mail inválido.");
         valido = false;
     }
-
+    if (!telefone.value.trim()) {
+        erro("telefone", "⚠ Preencha o telefone.");
+        valido = false;
+    }
+    
     // Validação da data de nascimento
     const hoje = new Date();
     const dataInformada = new Date(dataNasc.value);
@@ -153,13 +168,12 @@ function validarParte1() {
     return valido;
 }
 
-
 function validarParte2() {
     limparErros();
     let valido = true;
 
     let cep = document.getElementById("cep");
-    let rua = document.getElementById("rua");
+    
     let numero = document.getElementById("numero");    
     let cidade = document.getElementById("cidade");
     let estado = document.getElementById("estado");
@@ -168,11 +182,7 @@ function validarParte2() {
         erro("cep", "⚠ CEP inválido.");
         valido = false;
     }
-    if (!rua.value.trim()) {
-        erro("rua", "⚠ Preencha a rua.");
-        valido = false;
-    }
-
+    
     if (!numero.value.trim()) {
     erro("numero", "⚠ Preencha o número.");
     valido = false;
@@ -181,28 +191,12 @@ function validarParte2() {
     valido = false;
 }
 
-
     if (!cidade.value.trim()) {
         erro("cidade", "⚠ Preencha a cidade.");
         valido = false;
     }
     if (!estado.value.trim()) {
         erro("estado", "⚠ Preencha o estado.");
-        valido = false;
-    }
-
-    if (valido) salvarDados();
-    return valido;
-}
-
-function validarParte3() {
-    limparErros();
-    let valido = true;
-
-    let telefone = document.getElementById("telefone");
-
-    if (!telefone.value.trim()) {
-        erro("telefone", "⚠ Preencha o telefone.");
         valido = false;
     }
 
@@ -251,6 +245,73 @@ function buscarCEP() {
 }
 document.getElementById("cep").addEventListener("blur", buscarCEP);
 
+
+function validarParte3() {
+    limparErros();
+    let valido = true;
+    
+    const trilhas = document.getElementsByName('trilha');
+    let trilhaSelecionada = false;
+
+    // Verifica se uma trilha foi selecionada
+    for (const trilha of trilhas) {
+        if (trilha.checked) {
+            trilhaSelecionada = true;
+            break;
+        }
+    }
+
+    if (!trilhaSelecionada) {
+        erro('trilha', '⚠ Selecione uma trilha de aprendizagem');
+        valido = false;
+    }
+
+    if (valido) salvarDados();
+    return valido;
+}
+
+
+
+//Parte 4
+function validarParte4() {
+    limparErros();
+    let valido = true;
+
+    let user = document.getElementById("user");
+    let senha = document.getElementById("senha");
+    let confirmar_senha = document.getElementById("confirmar_senha");
+
+    // Validação do nome de usuário
+    if (!user.value.trim()) {
+        erro("user", "⚠ Preencha o nome de usuário.");
+        valido = false;
+    } else if (user.value.trim().length < 4) {
+        erro("user", "⚠ O nome de usuário deve ter pelo menos 4 caracteres.");
+        valido = false;
+    }
+
+    // Validação da senha
+    if (!senha.value.trim()) {
+        erro("senha", "⚠ Digite uma senha.");
+        valido = false;
+    } else if (senha.value.length < 6) {
+        erro("senha", "⚠ A senha deve ter pelo menos 6 caracteres.");
+        valido = false;
+    }
+
+    // Validação da confirmação de senha
+    if (!confirmar_senha.value.trim()) {
+        erro("confirmar_senha", "⚠ Confirme sua senha.");
+        valido = false;
+    } else if (senha.value !== confirmar_senha.value) {
+        erro("confirmar_senha", "⚠ As senhas não coincidem.");
+        valido = false;
+    }
+
+    return valido;
+}
+
+
 // Armazena os dados preenchidos
 function salvarDados() {
     let dados = {
@@ -263,7 +324,10 @@ function salvarDados() {
         rua: document.getElementById("rua").value,
         cidade: document.getElementById("cidade").value,
         estado: document.getElementById("estado").value,
-        telefone: document.getElementById("telefone").value
+        telefone: document.getElementById("telefone").value,
+        trilha: document.querySelector('input[name="trilha"]:checked')?.value || "",
+        user: document.getElementById("user").value,
+        senha: document.getElementById("senha").value
     };
     sessionStorage.setItem("dadosInscricao", JSON.stringify(dados));
 }
@@ -280,5 +344,12 @@ function carregarDadosSalvos() {
         document.getElementById("cidade").value = dados.cidade || "";
         document.getElementById("estado").value = dados.estado || "";
         document.getElementById("telefone").value = dados.telefone || "";
+        
+        if (dados.trilha) {
+            const radioTrilha = document.querySelector(`input[name="trilha"][value="${dados.trilha}"]`);
+            if (radioTrilha) {
+                radioTrilha.checked = true;
+            }
+        }
     }
 }
