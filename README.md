@@ -60,4 +60,7 @@ Para abrir e rodar o projeto, execute o aquivo `login.html` no navegador ou atra
 
 ## 📁 Acesso ao projeto
 
+https://devnandii.github.io/Formulario-inscri-es/
+obs. Para acessar a page login, clique em cancelar ou voltar.
+
 
