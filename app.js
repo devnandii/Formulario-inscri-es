@@ -32,24 +32,16 @@ function mostrarParte4() {
     }
 }
 
-// function finalizarInscricao() {
-//     if (validarParte3()) {
-//         salvarDados();
-//         alert("✅ Inscrição realizada com sucesso!");
-        
-//     }
-// }
-
 function finalizarInscricao() {
     if (validarParte4()) {
         salvarDados();
         
         // Exibe mensagem de sucesso
-        alert('Cadastro realizado com sucesso!');
+        alert('✅ Cadastro realizado com sucesso!');
         
         // Redireciona para a página de login após 2 segundos
         setTimeout(() => {
-            window.location.href = 'login.html'; // Substitua pelo caminho correto da sua página de login
+            window.location.href = 'login.html'; 
         }, 2000);
     }
 }
@@ -57,7 +49,7 @@ function finalizarInscricao() {
 
 
 function alternarSecoes(id) {
-    // Seleciona todas as divs filhas diretas do formulário
+    // Seleciona todas as divs filhas do formulário
     const form = document.getElementById("form");
     const secoes = form.querySelectorAll(":scope > div");
     
@@ -72,7 +64,7 @@ function alternarSecoes(id) {
 }
 
 
-// Exibir erro abaixo dos campos
+// Exibe os erros abaixo dos campos
 function erro(id, mensagem) {
     let erroElemento = document.getElementById(`${id}-erro`);
     if (erroElemento) {
@@ -82,7 +74,7 @@ function erro(id, mensagem) {
     }
 }
 
-// Remover erro quando o usuário digitar
+// Remove erro quando o usuário digitar
 document.querySelectorAll("input").forEach(input => {
     input.addEventListener("input", function () {
         let erroElemento = document.getElementById(`${this.id}-erro`);
@@ -92,11 +84,12 @@ document.querySelectorAll("input").forEach(input => {
     });
 });
 
+//Limpa os erros quando usuario digita
 function limparErros() {
     document.querySelectorAll(".erro").forEach(el => el.textContent = "");
 }
 
-//Mascara
+//Mascara para os documentos
 function formatar(mascara, documento) {
     let i = documento.value.length;
     let saida = '#';
@@ -128,12 +121,10 @@ function validarParte1() {
         erro("cpf", "⚠ CPF inválido.");
         valido = false;
     }
-
     if (!sexo.value) {
         erro("sexo", "⚠ Selecione o sexo.");
         valido = false;
     }
-
     if (!validarEmail(email.value)) {
         erro("email", "⚠ E-mail inválido.");
         valido = false;
@@ -265,14 +256,10 @@ function validarParte3() {
         erro('trilha', '⚠ Selecione uma trilha de aprendizagem');
         valido = false;
     }
-
     if (valido) salvarDados();
     return valido;
 }
 
-
-
-//Parte 4
 function validarParte4() {
     limparErros();
     let valido = true;
@@ -289,7 +276,6 @@ function validarParte4() {
         erro("user", "⚠ O nome de usuário deve ter pelo menos 4 caracteres.");
         valido = false;
     }
-
     // Validação da senha
     if (!senha.value.trim()) {
         erro("senha", "⚠ Digite uma senha.");
@@ -298,7 +284,6 @@ function validarParte4() {
         erro("senha", "⚠ A senha deve ter pelo menos 6 caracteres.");
         valido = false;
     }
-
     // Validação da confirmação de senha
     if (!confirmar_senha.value.trim()) {
         erro("confirmar_senha", "⚠ Confirme sua senha.");
@@ -307,12 +292,16 @@ function validarParte4() {
         erro("confirmar_senha", "⚠ As senhas não coincidem.");
         valido = false;
     }
-
+    // Verifica se usuário já existe
+    if (localStorage.getItem("usuario_" + user)) {
+        erro("user", "⚠ Este nome de usuário já está em uso.");
+        valido = false;
+    }
     return valido;
 }
 
 
-// Armazena os dados preenchidos
+// Armazenamento de dados preenchidos
 function salvarDados() {
     let dados = {
         nome: document.getElementById("nome").value,
@@ -329,27 +318,40 @@ function salvarDados() {
         user: document.getElementById("user").value,
         senha: document.getElementById("senha").value
     };
+    sessionStorage.setItem("usuario_" + dados.user, JSON.stringify(dados));
     sessionStorage.setItem("dadosInscricao", JSON.stringify(dados));
 }
 
 // Carrega os dados preenchidos
-function carregarDadosSalvos() {
-    let dados = JSON.parse(sessionStorage.getItem("dadosInscricao"));
-    if (dados) {
-        document.getElementById("nome").value = dados.nome || "";
-        document.getElementById("cpf").value = dados.cpf || "";
-        document.getElementById("email").value = dados.email || "";
-        document.getElementById("cep").value = dados.cep || "";
-        document.getElementById("rua").value = dados.rua || "";
-        document.getElementById("cidade").value = dados.cidade || "";
-        document.getElementById("estado").value = dados.estado || "";
-        document.getElementById("telefone").value = dados.telefone || "";
-        
-        if (dados.trilha) {
-            const radioTrilha = document.querySelector(`input[name="trilha"][value="${dados.trilha}"]`);
-            if (radioTrilha) {
-                radioTrilha.checked = true;
-            }
+function salvarDados() {
+    // Captura a trilha selecionada.
+    let trilhaSelecionada = "";
+    const radiosTrilha = document.getElementsByName('trilha');
+    for (let radio of radiosTrilha) {
+        if (radio.checked) {
+            trilhaSelecionada = radio.value;
+            break;
         }
     }
+
+    let dados = {
+        nome: document.getElementById("nome").value,
+        dataNasc: document.getElementById("data_nascimento").value,
+        cpf: document.getElementById("cpf").value,
+        sexo: document.getElementById("sexo").value,
+        email: document.getElementById("email").value,
+        cep: document.getElementById("cep").value,
+        rua: document.getElementById("rua").value,
+        numero: document.getElementById("numero").value, 
+        cidade: document.getElementById("cidade").value,
+        estado: document.getElementById("estado").value,
+        telefone: document.getElementById("telefone").value,
+        trilha: trilhaSelecionada,
+        user: document.getElementById("user").value,
+        senha: document.getElementById("senha").value
+    };
+    
+    console.log("Dados a serem salvos:", dados); 
+    sessionStorage.setItem("usuario_" + dados.user, JSON.stringify(dados));
+    sessionStorage.setItem("dadosInscricao", JSON.stringify(dados));
 }

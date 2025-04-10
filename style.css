@@ -17,7 +17,6 @@
 
 }
 
-
 * {
     margin: 0;
     padding: 0;
@@ -33,50 +32,17 @@ body {
     align-items:center;
     padding-top: 32px;
     background-color: var(--royalBlue);
-    
-}
-.info{
-    margin-bottom: 20px;
-}
+}  
 
 h2{
+    text-align: center;
     color: var(--grayBrown);
-}
-.container {
-    width: 70%;
-    /* max-width: 1200px; */
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    background-color: var(--white);
-    padding: 40px;
-    border-radius: 10px;    
-    flex-direction: column;
-    /* margin-right: 110px; */
-        
+    margin-bottom: 30px;
 }
 
 form {
     width: 100%;
     color: var(--form);
-}
-
-
-.imagem_estudante {
-    width: 55%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 250px;
-    /* background-color: #2135A6; */
-}
-
-.imagem_estudante img {
-    max-width: 100%;
-    height: auto;
-    top: 10rem;
-    left: 1rem;    
-    position: fixed;
 }
 
 fieldset {
@@ -107,6 +73,42 @@ input, select {
     font-size: 1rem;
     
 }
+
+.p-info{
+    margin-top: 10px;
+}
+
+.info{
+    margin-bottom: 20px;
+}
+.container {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: 10px;    
+    flex-direction: column;          
+}
+
+.imagem_estudante {
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 250px;
+    /* background-color: #2135A6; */
+}
+
+.imagem_estudante img {
+    max-width: 100%;
+    height: auto;
+    top: 10rem;
+    left: 1rem;    
+    position: fixed;
+}
+
 
 .rua-numero,
 .cidade-estado {
@@ -178,53 +180,11 @@ button{
 .continuar:hover, .cadastrar:hover {
     background-color: var(--coralOrange);
 }
-/*
-.container.error input{
-    border-color: #ff3b25;
-
-}
-
-.container.error a{
-    color: #ff3b25;
-} 
-
-.container a{
-    bottom: -8px;
-    left: 0;
-    visibility: hidden;
-
-    
-} */
-
-
-
-
-
-
-
-
-
-
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-
-    .formulario,
-    .imagem_estudante {
-        width: 100%;
-    }
-
-    .imagem_estudante {
-        margin-top: 2rem;
-    }
-}
 
 .trilha-container{
     display: flex;
     gap: 15px;
-    flex-wrap: wrap;
-    
+    flex-wrap: wrap;    
 }
 
 .trilha-box {
@@ -243,8 +203,6 @@ button{
     
 }
 
-
-
 .trilha-box:hover {
     background-color: #4D55CC;
 }
@@ -259,47 +217,17 @@ button{
     display: none;
 }
 
-/*========capa==========*/
-.log-inicio{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.5rem 2%;
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 1000;
-}
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
 
-.log-inicio img{
-    height: 2rem;   
-}
+    .formulario,
+    .imagem_estudante {
+        width: 100%;
+    }
 
-.inicio{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    .imagem_estudante {
+        margin-top: 2rem;
+    }
 }
-.img-inicio{
-    width: 100%;
-    height: auto;
-    
-}
-
-.inscrever a{
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 1rem;
-    border: 1px solid var(--white);
-    border-radius: 16px;
-    padding: 16px;
-    color: var(--white);
-    text-decoration: none;
-}
-
-.inscrever a:hover{
-    background-color: var(--white);
-    color: var(--black);
-}
-
-

@@ -20,10 +20,12 @@
 
 }
 
+
 body{
-    margin: 0;
+   
     font-family: "Poppins", sans-serif;
     background-color: var(--royalBlue);
+    
 }
 
 h1{
@@ -33,8 +35,7 @@ h1{
 
 .container{
     width: 100%;
-    height: 100vh;
-    background: var();    
+    height: 100vh;      
     display: flex;
     justify-content: center;    
     align-items: center;
@@ -46,10 +47,11 @@ h1{
     height: 80vh;        
     display: flex;
     justify-content: center;
-    border: solid 2px rgba(255, 255, 2555, 0.596);
+    border: solid 2px var(--white);
     border-radius: 20px;
     align-items: center;
-    background: linear-gradient(to bottom, #cec7c0, #0d1ad1);
+    background: linear-gradient(to bottom, #52aada, #1e42b8, #3b5ac0);
+    gap: 10px;   
    
 }
 
@@ -59,10 +61,8 @@ h1{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    
+    align-items: center;    
 }
-
 
 .formLogin{
     display: flex;
@@ -73,15 +73,11 @@ h1{
     height: 400px;
     padding: 50px;
     margin: 0px 90px 0px 0px;
-    
-    
 }
 
 .formLogin input{
-    
     outline: none;
-    background-color: #0000003e;
-    color: #fff;
+    background-color: #2726263e;
     width: 100%;
     height: 48px;
     padding-left: 16px;        
@@ -91,11 +87,11 @@ h1{
 }
 
 .formLogin input:focus{
-    color: #fff;
+    color: var(--white);
 }
 
 .formLogin input::placeholder{
-    color: #fff;
+    color: var(--white);
 }
 
 .formLogin button{
@@ -105,7 +101,7 @@ h1{
     width: 100%;
     height: 48px;
     font-size: 14px;
-    background-color: var(--white); /*verificar*/
+    background-color: var(--white); 
     color: var(--grayBrown);
     font-weight: 700;
     text-transform: uppercase;
@@ -124,133 +120,65 @@ h1{
 
 .formLogin a{
     text-decoration: none;
-
     font-weight: 700;
     color: var(--grayBrown);
 }
 
 .formLogin a:hover{
-    color: var(--coralOrange);
-      
-    
+    color: var(--coralOrange);  
 }
-
-
 
 img{
     width: 100%;
     height: 60vh;
     padding: 60px;
-    
-    
-    /* border-radius: 20px; */
-    
-   
+      
 }
 
-
-
-
-
-/* 
-.left-login{
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* padding: 20px; */
-   /* border: #292524;
-}
-
-img{
-    width: 100%;
-    height: 80vh;
-    /* border-radius: 20px; */
-    
-/*}
-
-
-label{
-    color: var(--white);
-}
-
-.right-login{
-    width: 40%;;
-    height: 80vh;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    flex-direction: column;
-    padding: 30px 35px;
-    background: var(--blue);
-    /* border-radius: 20px; */
-  /*  box-shadow: 0px 10px 40px #00000056;
-  
-}
-
-h1{
-    color: var(--coralOrange);
-}
-
-
-.textfield{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    margin: 10px;
-
-}
-
-.textfield > input{
-    width: 100%;
-    border: none;
-    border-radius: 10px;
-    padding: 15px; 
-    font-size: 12pt;
-    box-shadow: 0px 10px 40px #00000056;
-    outline: none;
-    box-sizing: border-box;
-} 
-
-.btn-login{
-    width: 50%;
-    padding: 16px 0px;
-    margin: 25px;
-    border: none;
-    border-radius: 8px;
-    outline: none;
-    text-transform: uppercase;
-    font-weight: 800;
-    letter-spacing: 2px;
-    color: var(--white);
-    background: var(--coralOrange);
-    cursor: pointer;
-}
-
-
-@media only screen and (max-width: 950px) {
-    .card {
-        width: 90%;
-    }
-
-    .left-login, .right-login {
-        width: 50%; /* Tamanho reduzido dos cards em telas menores */
-   /* }
-}
-
-@media only screen and (max-width: 600px) {
-    .login {
+@media (max-width: 1096px) {
+    img{
+        width: 80%;
+        height: auto;
+        padding: 60px 0px 10px 0px;
+        /* width: 20vw; */
+    }    
+    .container-card{
         flex-direction: column;
-        height: auto; /* Permite que a altura seja ajustada conforme o conteúdo */
-    /*}
-
-    .left-login, .right-login {
-        width: 100%; /* Os cards ocupam 100% da largura em telas menores */
-    /*    height: auto;
+        gap: 50px;
     }
+    .formLogin{
+        padding: 10px 0px 230px 60px;
+        font-size: 1.5vw;
+    }
+}
 
-    .card {
-        width: 90%; /* Faz o card ocupar quase toda a tela */
-   /* }
-} */
+@media(max-width: 950px){
+    .left-login{
+        width: 100%;
+        height: auto;
+    }
+    .right-login{
+        width: 100%;
+        height: auto;
+    }
+    img{
+        
+        width: 40%;
+        height: 120%;
+        padding: 180px 0px 10px 0px;
+    }
+    .formLogin{
+        font-size:85%;
+    }
+    .container-card{
+        gap: 35px;
+    }
+}
+
+.error-message {
+    color: #ff6b6b;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+

@@ -8,28 +8,27 @@
 </head>
 <body>
     <section class="container">
-        <div class="container-card">
-            
+        <div class="container-card">            
                 <div class="left-login">
-                    <img src="img/Image 2.png">
+                    <img src="img/Image 2.png" alt="Imagem de login">
                 </div>
                 
                 <div class="right-login">        
                     <div class="formLogin">
-                        <h1>Login</h1>
-                        <form >
+                        <h1>Painel de Acesso</h1>
+                        <form id="loginForm">
                             <div class="textfield">
                                 <!-- <label for="user">Usuário</label> -->
-                                <input type="text" name = "user" placeholder="Usuário">
+                                <input type="text" id="loginUser" name = "user" placeholder="Usuário" required>
                             </div>
                             <div class="textfield">
                                 <!-- <label for="senha">Senha</label> -->
-                                <input type="password" name="senha" placeholder="Senha">
+                                <input type="password" id="loginSenha" name="senha" placeholder="Senha" required>
                             </div>
-                            <button class="btn-login">Login</button>
+                            <button type="submit" class="btn-login">Login</button>
+                            <div id="loginError" class="error-message"></div>
 
-                            <p>Não possui uma conta?<a href="index.html"> Cadastre-se</a></p>
-                    
+                            <p>Não possui uma conta?<a href="index.html"> Cadastre-se</a></p>                    
                         </form>
                     </div>
         
@@ -37,6 +36,7 @@
             
         </div>
     </section>
+    <script src="login.js"></script>
     
 </body>
 </html>

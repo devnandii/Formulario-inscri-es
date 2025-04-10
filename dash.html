@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Programa Trilhas</title>
+    <link rel="stylesheet" href="dash.css">
+</head>
+<body>
+    <header class="dashboard-header">
+        <div class="logo">
+            <img src="img/Group 2.png" alt="Logo Trilhas">
+           
+        </div>
+        <nav>
+            <button id="logoutBtn">Sair</button>
+        </nav>
+    </header>
+
+    <main class="dashboard-container">
+        <section class="user-profile">
+            <div class="profile-header">
+                <h2>Meu Perfil</h2>
+                <button id="editProfileBtn">Editar Perfil</button>
+            </div>
+            
+            <div class="profile-info">
+                <div class="info-card">
+                    <h3>Informações Pessoais</h3>
+                    <p><strong>Nome:</strong> <span id="profile-nome"></span></p>
+                    <p><strong>Data de Nascimento:</strong> <span id="profile-dataNasc"></span></p>
+                    <p><strong>CPF:</strong> <span id="profile-cpf"></span></p>
+                    <p><strong>Sexo:</strong> <span id="profile-sexo"></span></p>
+                    <p><strong>E-mail:</strong> <span id="profile-email"></span></p>
+                    <p><strong>Telefone:</strong> <span id="profile-telefone"></span></p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Endereço</h3>
+                    <p><strong>CEP:</strong> <span id="profile-cep"></span></p>
+                    <p><strong>Rua:</strong> <span id="profile-rua"></span>, <span id="profile-numero"></span></p>
+                    <p><strong>Cidade:</strong> <span id="profile-cidade"></span></p>
+                    <p><strong>Estado:</strong> <span id="profile-estado"></span></p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Trilha de Aprendizagem</h3>
+                    <div id="profile-trilha" class="trilha-selecionada">
+                        <!-- Ícone e nome da trilha serão inseridos via JS -->
+                    </div>
+                    <p class="info-text">Sua jornada de aprendizagem começa em breve!</p>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <script src="dash.js"></script>
+</body>
+</html>
