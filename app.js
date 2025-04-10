@@ -47,7 +47,6 @@ function finalizarInscricao() {
 }
 
 
-
 function alternarSecoes(id) {
     // Seleciona todas as divs filhas do formulário
     const form = document.getElementById("form");
